@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    {% for article in articles %}
+
+        {% if app.user %}
+        <article>
+        <H1> {{ article.title }} </H1>
+        <p>{{ article.content }}</p>
+        <img src="{{ article.image }}" width="50%">
+         </article>
+        <p>votre nom : {{ app.user.username }} </p>
+        {% else %}
+        <p>vous devez vous connectez pour voir cette article</p>
+        {% endif %}
+
+    {% endfor %}
+
+
+{% endblock %}

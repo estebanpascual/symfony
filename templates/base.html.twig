@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Kasumi-power{% endblock %}</title>
+        
+        <link rel="stylesheet" href="https://bootswatch.com/4/minty/bootstrap.min.css"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" ></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+
+
+        {% block stylesheets %}{% endblock %}
+    </head>
+    <body>
+
+<style>
+body {
+color:black;
+background-color:white;
+background-image:url();
+}
+</style>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <a class="navbar-brand" href="{{ path('home') }}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Kasumi power</font></font></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Basculer la navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+        <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('home') }}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Accueil </font></font><span class="sr-only"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">(actuel)</font></font></span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('galerie') }}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Galerie</font></font></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Commission</font></font></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('security_login') }}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Connexion</font></font></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('security_registration') }}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Inscription</font></font></a>
+            </li>
+             <li class="nav-item">
+                <a class="nav-link" href="{{ path('blog') }}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Actualité</font></font></a>
+            </li>
+            {% if app.user.email == "kasumi@gmail.com" %}
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('ajout') }}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Mettre à jours l'actualité</font></font></a>
+            </li>
+            {% endif %}
+            </ul>
+        </div>
+        </nav>
+<br><br><br>
+    <div class="container center-block">
+
+        {% block body %}{% endblock %}
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>

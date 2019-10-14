@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+
+        {% if app.user.email == "kasumi@gmail.com" %}
+        
+        
+    {{ form_start(form) }}
+
+    {{ form_row(form.title, { 'attr': {'placeholder':'Le titre du dessin', 'class':'form-control'}}) }}
+    {{ form_row(form.content, { 'attr': {'placeholder':'Le contenu de la description', 'class':'form-control'}}) }}
+    {{ form_row(form.image, { 'attr': {'placeholder':'Le lien de l image', 'class':'form-control'}}) }}
+    {{ form_row(form.createdAt) }}
+    <br>
+    <button type="submit" class="btn btn-success">Poster</button>
+
+    {{ form_end(form) }}
+        {% else %}
+        <p style="color:red">vous n'êtes pas administrateur</p>
+        {% endif %}
+
+{% endblock %}
